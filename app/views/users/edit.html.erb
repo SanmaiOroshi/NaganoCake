@@ -1,0 +1,45 @@
+<%= form_for(@user) do |f|%>
+
+<div class = "form-group">
+<%= f.label :name, '名前' %>
+    <%= f.label :last_name, '(姓)' %>
+    <%= f.text_field :last_name, class: 'form-control'%>
+    <%= f.label :first_name, '(名)' %>
+    <%= f.text_field :first_name, class: 'form-control'%>
+</div>
+
+<div class = "form-group">
+<%= f.label :name, 'フリガナ' %>
+    <%= f.label :name, '(セイ)' %>
+    <%= f.text_field :last_name_kana, class: 'form-control'%>
+    <%= f.label :name, '(メイ)' %>
+    <%= f.text_field :first_name_kana, class: 'form-control'%>
+</div>
+
+<div class = "form-group">
+<%= f.label :email, 'メールアドレス'%>
+    <%= f.text_field :email, class: 'form-control'%>
+</div>
+
+<div class = "form-group">
+<%= f.label :post_code, '郵便番号(ハイフンなし)'%>
+    <%= f.text_field :post_code, class: 'form-control'%>
+</div>
+
+<div class = "form-group">
+<%= f.label :address, '住所'%>
+    <%= f.text_field :address, class: 'form-control'%>
+</div>
+
+<div class = "form-group">
+<%= f.label :phone_number, '電話番号(ハイフンなし)'%>
+    <%= f.text_field :phone_number, class: 'form-control'%>
+</div>
+
+<div class="actions">
+    <%= link_to "編集内容を保存する", user_path(current_user), method: :update, class: "btn btn-primary" %>
+</div>
+
+<div class="actions">
+    <%= link_to "退会する", quit_user_path(current_user), class: "btn btn-danger" %>
+</div>

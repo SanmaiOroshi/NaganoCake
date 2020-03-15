@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     def update
         @user = current_user
         if @user.update(user_params)
-            redirect_to user_path
+            redirect_to user_path(current_user.id)
         else
             render "edit"
         end
@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     
     def edit
         @user = current_user
+    end
+
+    def show
+        
     end
 
     private
