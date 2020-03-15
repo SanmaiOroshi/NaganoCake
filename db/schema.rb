@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_122329) do
 
   create_table "genres", force: :cascade do |t|
     t.string "genre", null: false
-    t.boolean "display_status", null: false
+    t.boolean "display_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_122329) do
     t.integer "unit_price", null: false
     t.text "description"
     t.text "image_id"
-    t.boolean "status", null: false
+    t.boolean "status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_122329) do
     t.string "post_code", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
-    t.boolean "status"
+    t.boolean "status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
