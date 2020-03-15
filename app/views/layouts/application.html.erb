@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト" ,destroy_user_session_path, method: :delete %>
+    <% elsif admin_signed_in? %>
+      <%= link_to "ログアウト(管理者)" ,destroy_admin_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "ログイン" ,new_user_session_path %>
+      <%= link_to "ログイン(管理者)" ,new_admin_session_path %>
+      <%= link_to "ユーザ登録",new_user_registration_path %>
+    <% end %>
+
+
     <%= yield %>
   </body>
 </html>
