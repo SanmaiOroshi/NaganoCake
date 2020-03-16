@@ -1,21 +1,32 @@
-<h3>商品 新規登録画面</h3>
+<div class="container">
+  <div class="row">
+  <h3>商品 新規登録画面</h3>
+    <%= form_with url: admin_products_path,model: @product do |f| %>
+      <div class="col-xs-4">
+        <div>
+          <%= f.attachment_field :image%>
+        </div>      
+      </div>
 
-<%= form_with url: admin_products_path,model: @product do |f| %>
-  <div>
-    <%= f.attachment_field :image%>
-  </div>
-  <div>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.text_area :description %>    
-  </div>
-  <div>
-    <%= f.collection_select :genre_id, Genre.all, :id,:genre %>
-  </div>
-  <div>
-    <%= f.number_field :unit_price%>
-  </div>
+      <div class="col-xs-8">
+        <div>商品名
+          <%= f.text_field :name %>
+        </div>
+        <div>商品説明
+          <%= f.text_area :description %>    
+        </div>
+        <div>ジャンル
+          <%= f.collection_select :genre_id, Genre.all, :id,:genre, :prompt => "--選択してください--" %>
+        </div>
+        <div>税抜価格
+          <%= f.number_field :unit_price%>
+        </div>
 
-  <%= f.submit "新規登録", class: "btn btn-primary" %>
-<% end %>
+        <div>販売ステータス
+          <%= f.select :status, Product.statuses.keys.to_a, :prompt => "--選択してください--" %>                
+        </div>  
+        <%= f.submit "新規登録", class: "btn btn-primary" %>
+      </div>
+    <% end %>  
+  </div>
+</div>

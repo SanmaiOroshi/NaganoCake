@@ -16,12 +16,28 @@ class Admin::ProductsController < ApplicationController
 
   def create
     # binding.pry
-    product = Product.create(product_params)
+    if product = Product.create(product_params)
+      redirect_to admin_product_path(params[:id])
+    else
+      @product = Product.new
+      render 'new'
+    end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+    # binding.pry
   end
 
 
   def update
-
+    product = Product.find(params[:id])
+    if product.update(product_params)
+      redirect_to admin_product_path(params[:id])
+    else
+      @product = Product.find(params[:id])
+      render 'edit'
+    end
   end
 
 private
