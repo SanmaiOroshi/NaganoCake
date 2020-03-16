@@ -1,1 +1,27 @@
-      <%= link_to "ログアウト" ,destroy_user_session_path, method: :delete %>
+
+<div class="container">
+  <div class="navbar header">
+  	<%= link_to "NaganoCake", root_path, class: "navbar-brand" %>
+  	</div>
+
+      <ul class="nav navbar-nav .justify-content-center">
+
+      <div class="u-name text-white strong">
+      	ようこそ、<%= current_user.last_name %><%= current_user.first_name %>さん！
+      </div>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+      <%= link_to "マイページ", user_path(current_user),class:"glyphicon glyphicon-user" %>
+
+      <%= link_to "商品一覧", products_path, class:"glyphicon glyphicon-gift" %>
+
+      <%= link_to "カート", carts_path, class:"glyphicon glyphicon-shopping-cart" %>
+
+      <%= link_to "ログアウト" ,destroy_user_session_path, method: :delete,class:"glyphicon glyphicon-log-out" %>
+
+      </ul>
+  </div>
+</div>
