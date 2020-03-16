@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="col-xs-3">
+		<h2>配送先登録</h2>
+		<%= form_for(@delivery_new) do |f| %>
+          <div class="form-group row">
+      		<%= f.text_field :post_code, class: "form-control", placeholder: "郵便番号" %>
+        </div>
+
+        <div class="form-group row">
+      		<%= f.text_field :address, class: "form-control", placeholder: "住所" %>
+        </div>
+
+        <div class="form-group row">
+      		<%= f.text_field :name, class: "form-control col-6", placeholder: "宛名" %>
+        </div>
+
+        <div class="row">
+    		  <%= f.submit "登録する", class: "btn btn-primary btn-outline-danger mx-auto" %>
+        </div>
+    	<% end %>
+    </div>
+
+
+
+
+	<div class="col-xs-9">
+		<h2>配送先一覧</h2>
+	  <table class="table table table-borderless table-hover">
+      <thead>
+         <th>郵便番号</th>
+         <th>住所</th>
+         <th>宛名</th>
+         <th></th>
+      </thead>
+
+     <tbody>
+    <% @deliveries.each do |delivery| %>
+    <tr class="haisou">
+     	<td><%= delivery.post_code %></td>
+     	<td><%= delivery.address %></td>
+     	<td><%= delivery.name %></td>
+     	<td><%= link_to "編集する", edit_delivery_path(delivery.id),  class: "btn btn-sm btn-success edit_delivery" %>
+          <%= link_to "削除する", delivery_path(delivery.id), method: :delete ,data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
+        </td>
+     </tr>
+  <% end %>
+     </tbody>
+     </table>
+	</div>
+</div>
+
