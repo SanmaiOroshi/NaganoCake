@@ -10,16 +10,18 @@
   </head>
 
   <body>
+    <!-- ユーザでログインしている場合 -->
     <% if user_signed_in? %>
-      <%= link_to "ログアウト" ,destroy_user_session_path, method: :delete %>
-    <% elsif admin_signed_in? %>
-      <%= link_to "ログアウト(管理者)" ,destroy_admin_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "ログイン" ,new_user_session_path %>
-      <%= link_to "ログイン(管理者)" ,new_admin_session_path %>
-      <%= link_to "ユーザ登録",new_user_registration_path %>
-    <% end %>
+      <%= render 'layouts/user_header' %>
 
+    <!-- 管理者でログインしている場合 -->
+    <% elsif admin_signed_in? %>
+      <%= render 'layouts/admin_header' %>
+
+    <!-- ログインしていない場合 -->
+    <% else %>
+      <%= render 'layouts/before_login' %>
+    <% end %>
 
     <%= yield %>
   </body>
