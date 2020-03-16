@@ -1,0 +1,8 @@
+<h3>商品 詳細画面</h3>
+
+<%= attachment_image_tag  @product, :image %>
+  <td><%= @product.id %></td>
+  <td><%= @product.name %></td>
+  <td><%= @product.unit_price %></td>
+  <td><%= @product.genre.genre %></td>
+  <td><%= @product.status %></td>
