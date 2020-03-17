@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_14_122329) do
+ActiveRecord::Schema.define(version: 2020_03_17_100255) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_03_14_122329) do
     t.integer "user_id", null: false
     t.integer "product_id", null: false
     t.integer "units", null: false
-    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_122329) do
 
   create_table "genres", force: :cascade do |t|
     t.string "genre", null: false
-    t.boolean "display_status", default: true, null: false
+    t.boolean "display_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_122329) do
     t.integer "unit_price", null: false
     t.text "description"
     t.text "image_id"
-    t.boolean "status", default: true, null: false
+    t.boolean "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,7 +95,7 @@ ActiveRecord::Schema.define(version: 2020_03_14_122329) do
     t.string "post_code", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
-    t.boolean "status", default: true, null: false
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
