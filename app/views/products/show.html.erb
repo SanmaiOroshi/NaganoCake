@@ -1,0 +1,19 @@
+<div class = "row">
+    <div class = "col-xs-3">
+        <h2>ジャンル検索</h2>
+        <% @genres.each do |genre|%>
+        <%= genre.genre%>
+        <% end %>
+    </div>
+</div>
+
+<div class = "col-xs-9">
+        <%= attachment_image_tag(@products, :image_id, :fill, 200, 200,  fallback: "no-image-mini.jpg")%><br>
+        <%= @products.name %>
+        <%= @products.description%>
+        <h2><%= @products.price%></h2> <h5>(税込)</h5>
+        <%= 5.each do |i|%>
+        <%= i.select :units, [["1","1"]], [["2","2"]], [["3","3"]], [["4","4"]], [["5","5"]] %>
+        <%= i.submit 'カートにいれる'%>
+        <% end%>
+</div>
