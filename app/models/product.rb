@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
 
-  enum status: {"販売中": true, "販売停止中": false}
+  # boolean は enum使うとfalse不具合が起きたので、ja.ymlで変換するだけで使用しない
+  # enum status: {chk_true: true, chk_false: false}
+
   has_many :carts, dependent: :destroy
   has_many :ordered_products, dependent: :destroy
   belongs_to :genre

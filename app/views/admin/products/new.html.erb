@@ -22,8 +22,9 @@
           <%= f.number_field :unit_price%>
         </div>
 
+        <!-- 変換後のkeyを取得、valueは本来のvalue -->
         <div>販売ステータス
-          <%= f.select :status, Product.statuses.keys.to_a, :prompt => "--選択してください--" %>                
+          <%= f.select :status, [[t('enums.product.status.true'),true],[t('enums.product.status.false'),false]],:prompt => "--選択してください--" %>
         </div>  
         <%= f.submit "新規登録", class: "btn btn-primary" %>
       </div>

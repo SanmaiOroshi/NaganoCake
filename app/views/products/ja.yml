@@ -1,0 +1,7 @@
+ja:
+  products:
+    edit:
+      title: "テストです"
+      status:
+        chk_true: "販売中"
+        chk_false: "販売停止中"

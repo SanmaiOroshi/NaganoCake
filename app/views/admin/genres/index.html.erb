@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <%= form_with url: admin_genres_path,model: @genre do |f| %>
+      <%= f.text_field :genre%> 
+      <%= f.radio_button :display_status, true %>
+      <%= f.label :display_status, t('enums.genre.display_status.true') %>
+
+      <%= f.radio_button :display_status, false %>
+      <%= f.label :display_status, t('enums.genre.display_status.false') %>
+
+      <%= f.submit "追加" ,class:"btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>ジャンル</th>
+          <th>状態</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @genres.each do |genre| %>
+        <tr>
+          <td><%= genre.genre %></td>
+          <td><%= t("enums.genre.display_status.#{genre.display_status}") %></td>
+          <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>      
+  </div>  
+</div>
