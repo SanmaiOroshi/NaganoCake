@@ -22,10 +22,14 @@
         税込価格(税抜価格)
         <%= disp_tax_price(@product.unit_price) %>(<%= disp_price(@product.unit_price) %>)円     
       </div>
-        
+
+      <!-- i18nを使って標準化？ -->
       <div class="row">        
-        <%= @product.status %>
+        <%= t("enums.product.status.#{@product.status}") %>
       </div>
+
+
+
 
       <%= link_to "編集する",edit_admin_product_path(@product.id) %>            
     </div>

@@ -27,7 +27,7 @@
       </div>
 
       <div>販売ステータス
-        <%= f.select :status, Product.statuses.keys.to_a, {}%>      
+          <%= f.select :status, [[t('enums.product.status.true'),true],[t('enums.product.status.false'),false]],:prompt => "--選択してください--" %>
       </div>
 
       <div>
