@@ -10,3 +10,22 @@ ja:
       status:
         "true": "販売中"
         "false": "販売停止中"
+
+    order:
+      payment_method:
+        card: "クレジットカード"
+        transfar: "銀行振込"
+
+      status:
+        waiting_payment: "入金待ち"
+        confirm: "入金確認"
+        making: "製作中"
+        waiting_shipping: "発送準備中"
+        already_shipping: "発送済み"
+        
+    ordered_product:
+      working_status:
+        cannot: "着手不可"
+        waiting: "製作待ち"
+        making: "制作中"
+        done: "制作完了"

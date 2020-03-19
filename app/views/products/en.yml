@@ -1,7 +1,0 @@
-en:
-  products:
-    edit:
-      title: "Test"
-      status:
-        chk_true: "now on sell"
-        chk_false: "Stop"
