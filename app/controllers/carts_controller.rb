@@ -4,6 +4,17 @@ class CartsController < ApplicationController
         @carts = Cart.all
     end
 
+    def create
+        @cart = Cart.new(cart_params)
+        @cart.user_id = current_user.id
+        if @cart.save
+            redirect_to carts_path, notice: "カートに商品が追加されました。"
+        else
+            @carts = Cart.all
+            render 'index'
+        end
+    end
+
     def update
         @cart = Cart.find(params[:id])
         #@cart.units += cart_params[:units].to_i
@@ -26,6 +37,6 @@ class CartsController < ApplicationController
     private
 
     def cart_params
-        params.require(:cart).permit(:units)
+        params.require(:cart).permit(:units,:product_id)
     end
 end
