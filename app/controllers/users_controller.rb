@@ -3,6 +3,18 @@ class UsersController < ApplicationController
         
     end
 
+    def user_quit
+        @user = current_user
+        if @user.update(status: false)
+        #ログアウトさせる
+        reset_session
+        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+        end
+        redirect_to root_path
+    end
+
+
+
     def update
         @user = current_user
         if @user.update(user_params)

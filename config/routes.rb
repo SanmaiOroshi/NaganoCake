@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show,:edit,:update] do
     member do
       get 'quit'
+      put 'user_quit'
     end
   end
   resources :deliveries, only: [:index,:create,:destroy,:edit,:update]
