@@ -30,4 +30,9 @@ class User < ApplicationRecord
     self.user_total_price + 800
   end
 
+  def active_for_authentication?
+    super && (self.status == true)
+  end
+
+
 end
