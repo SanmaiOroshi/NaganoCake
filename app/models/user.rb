@@ -16,5 +16,17 @@ class User < ApplicationRecord
   validates :post_code,  presence: true, format: {with: /\A\d{7}\z/}
   validates :address, presence: true
 
+  def user_total_price
+    sum = 0
+    total_record = self.carts
+    total_record.each do |record|
+      sum += (record.price * 1.1).floor * record.units
+    end
+    return sum
+  end
+
+  def total_price_commission
+    self.user_total_price + 800
+  end
 
 end
