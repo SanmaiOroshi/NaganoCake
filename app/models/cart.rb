@@ -7,10 +7,10 @@ class Cart < ApplicationRecord
     end
 
     def total_price
-    sum = 0
-    total_record = current_user.carts
-    total_record.each do |record|
-      sum += record.price * record.units
+      sum = 0
+      total_record = current_user.carts
+      total_record.each do |record|
+        sum += record.price * record.units
+      end
     end
-  end
 end
