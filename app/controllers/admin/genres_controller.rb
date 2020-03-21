@@ -6,7 +6,6 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-    params[:genre][:display_status] = ActiveRecord::Type::Boolean.new.cast(params[:genre][:display_status])
     genre = Genre.new(genre_params)
     # binding.pry
     if genre.save
@@ -24,7 +23,6 @@ class Admin::GenresController < ApplicationController
 
   def update
     genre = Genre.find(params[:id])
-    params[:genre][:display_status] = ActiveRecord::Type::Boolean.new.cast(params[:genre][:display_status])
     if genre.update(genre_params)
       redirect_to admin_genres_path
     else
