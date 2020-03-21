@@ -1,7 +1,7 @@
 
 <h2>ショッピングカート</h2>
 <% @carts.each do |cart| %>
-<%= cart.submit "カートを空にする", class: "btn btn-danger" %>
+<%= link_to "カートを空にする",carts_path, method: :delete, class: "btn btn-danger" %>
 <table class = "table">
     <thead>
         <tr>
@@ -15,17 +15,18 @@
     <tbody>
         
         <tr>
-            <td><%= cart.name%></td>
-            <td><%= cart.price%></td>
+            <td><%= cart.product.name%></td>
+            <td><%= cart.product.unit_price%></td>
             <td>
-                <%= cart.text_field class: 'units'%>
-                <%= cart.submit "変更", class: "btn btn-primary" %>
+                <%= form_for cart do |c|%>
+                <%= c.submit "変更", class: "btn btn-primary" %>
+                <% end%>
             </td>
             <td>
-                <%= cart.price * cart.units %>
+                <%= cart.product.unit_price * cart.units %>
             </td>
             <td>
-                <%= cart.submit "削除する", class: "btn btn-danger" %>
+                <%= link_to "削除する",carts_path, method: :delete, class: "btn btn-danger" %>
             </td>
         </tr>
         
