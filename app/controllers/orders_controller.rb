@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+    # binding.pry
     @carts = current_user.carts
     @order = Order.new(orders_params)
     @payment_method = params[:order][:payment_method]
@@ -32,7 +33,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(orders_params)
-
+    # binding.pry
     # 保存できるか確認
     if @order.save
       current_user.carts.each do |cart|
@@ -40,7 +41,7 @@ class OrdersController < ApplicationController
           order_id: @order.id,
           product_id: cart.product_id,
           units: cart.units,
-          price: cart.price,
+          price: cart.product.tax_price,
           working_status: 1
         )
         Cart.destroy_all

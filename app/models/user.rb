@@ -20,7 +20,8 @@ class User < ApplicationRecord
     sum = 0
     total_record = self.carts
     total_record.each do |record|
-      sum += (record.price * 1.1).floor * record.units
+      price = record.product.unit_price
+      sum += (price * 1.1).floor * record.units
     end
     return sum
   end

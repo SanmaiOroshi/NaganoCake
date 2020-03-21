@@ -10,4 +10,8 @@ class Product < ApplicationRecord
   attachment :image
 
   validates :name, presence: true
+
+  def tax_price
+    (self.unit_price * 1.1).floor
+  end
 end
