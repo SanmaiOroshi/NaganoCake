@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(orders_params)
-    binding.pry
+    # binding.pry
     # 保存できるか確認
     if @order.save
       current_user.carts.each do |cart|
