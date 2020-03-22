@@ -46,4 +46,5 @@ class CartsController < ApplicationController
     def cart_params
         params.require(:cart).permit(:units,:product_id)
     end
+    
 end
