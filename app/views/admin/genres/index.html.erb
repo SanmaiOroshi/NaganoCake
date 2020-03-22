@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <%= form_with url: admin_genres_path,model: @genre do |f| %>
+    <%= form_with url: admin_genres_path,model: @genre,local: true do |f| %>
+      <%= render 'layouts/error_messages', model: @genre %>
       <%= f.text_field :genre%> 
       <%= f.radio_button :display_status, true %>
       <%= f.label :display_status, t('enums.genre.display_status.true') %>

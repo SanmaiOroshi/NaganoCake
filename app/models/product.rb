@@ -10,6 +10,9 @@ class Product < ApplicationRecord
   attachment :image
 
   validates :name, presence: true
+  validates :unit_price, presence: true
+  validates :status, presence: true
+  validates :genre_id, presence: true
 
   def tax_price
     (self.unit_price * 1.1).floor
