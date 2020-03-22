@@ -13,15 +13,14 @@
             </thead>
             <tbody>
               <% @orders.each do |order| %>
-
               <tr>
-                <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+                <td><%= link_to order.created_at.strftime("%Y/%m/%d"), admin_order_path(order.id) %></td>
                 <td>
                   <%= order.name %></br>
                 </td>
                 <td>
                   <% order.ordered_products.each do |product| %>
-                  <p><%= product.product.units %></p>
+                  <p><%= product.units%></p>
                   <% end %>
                 </td>
                 <td><%= t("enums.order.status.#{order.status}") %></td>
