@@ -1,7 +1,7 @@
 class Admin::ProductsController < ApplicationController
   def index
     # 後々kaminariを導入
-    @products = Product.all
+    @products = Product.page(params[:page]).per(10)
     # binding.pry
   end
 
