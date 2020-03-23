@@ -14,22 +14,25 @@
  *= require_self
  */
 
-    @import "bootstrap-sprockets";
-    @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-	background-color: #fafad2;
+body {
+    background-color: #fafad2;
 }
 
 a {
     color: #555500;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
+.item img {
+    width: 100%;
+}
