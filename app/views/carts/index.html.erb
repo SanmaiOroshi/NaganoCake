@@ -1,9 +1,8 @@
-
-<h2>ショッピングカート</h2>
-<%= link_to "カートを空にする",destroy_all_carts_path, method: :delete, class: "btn btn-danger" %>
 <% @carts.each do |cart| %>
-
+<table class = "table">
     <thead>
+    <h2>ショッピングカート</h2>
+    <%= link_to "カートを空にする",destroy_all_carts_path, method: :delete, class: "btn btn-danger" %>
         <tr>
             <th>商品名</th>
             <th>単価（税込）</th>
@@ -12,16 +11,10 @@
             <th></th>
         </tr>
     </thead>
-<table class = "table">
     <tbody>
-        
         <tr>
             <td><%= cart.product.name%></td>
             <td><%= cart.product.unit_price%></td>
-            <td>
-                <%= link_to "削除する",cart_path(cart.id), method: :delete, class: "btn btn-danger" %>
-            </td>
-
             <td>
                 <%= form_for cart do |c|%>
                 <%= c.number_field :units,min:1,max:10000,step:1 %>
@@ -31,8 +24,10 @@
             <td>
                 <%= cart.product.unit_price * cart.units %>
             </td>
+            <td>
+                <%= link_to "削除する",cart_path(cart.id), method: :delete, class: "btn btn-danger" %>
+            </td>
         </tr>
-        
     </tbody>
 </table>
 <% end %>
