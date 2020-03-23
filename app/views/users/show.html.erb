@@ -1,69 +1,58 @@
 
 
-<div class="container my-5">
+<div class="container">
     <div class="row">
-        <div class="offset-sm-1">
-            <h2 class="red-border px-3 pb-1">登録情報</h2>
-        </div>
-    </div>
-
-    <div class="row my-5">
-        <div class="offset-sm-4">
-
+        
+            <h2>登録情報</h2>
             <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
             <%= link_to "パスワードを変更", edit_user_registration_path, class: "btn btn-primary" %>
-        </div>
-    </div>
+ 
+            <table class="table table-borderless table-hover">
+              <tr>
+                    <td>氏名</td>
+                    <td>
+                        <%= @user.last_name %>
+                        <%= @user.first_name %>
+                    </td>
+              </tr>
 
+              <tr>
+                    <td>フリガナ</td>
+                    <td>
+                        <%= @user.last_name_kana %>
+                        <%= @user.first_name_kana %>
+                    </td>
+              </tr>
 
-    <div class="row">
-      <div class="offset-sm-4 col-sm-4">
-        <table class="table table-borderless table-hover">
-          <tr>
-                <td>氏名</td>
-                <td>
-                    <%= @user.last_name %>
-                    <%= @user.first_name %>
-                </td>
-          </tr>
+              <tr>
+                    <td>郵便番号</td>
+                    <td><%= @user.post_code %></td>
+              </tr>
 
-          <tr>
-                <td>フリガナ</td>
-                <td>
-                    <%= @user.last_name_kana %>
-                    <%= @user.first_name_kana %>
-                </td>
-          </tr>
+              <tr>
+                    <td>住所</td>
+                    <td><%= @user.address %></td>
+              </tr>
 
-          <tr>
-                <td>郵便番号</td>
-                <td><%= @user.post_code %></td>
-          </tr>
+              <tr>
+                    <td>電話番号</td>
+                    <td><%= @user.phone_number %></td>
+              </tr>
 
-          <tr>
-                <td>住所</td>
-                <td><%= @user.address %></td>
-          </tr>
+              <tr>
+                    <td>メールアドレス</td>
+                <td><%= @user.email %></td>
+              </tr>
+            </table>
 
-          <tr>
-                <td>電話番号</td>
-                <td><%= @user.phone_number %></td>
-          </tr>
-
-          <tr>
-                <td>メールアドレス</td>
-            <td><%= @user.email %></td>
-          </tr>
-        </table>
-
-        <div class = "action">
-            <h2>配送先</h2>
-            <%= link_to "一覧を見る", deliveries_path, class: "btn btn-primary" %>
-        </div>
-        <div class = "action">
-            <h2>注文を見る</h2>
-            <%= link_to "一覧を見る", orders_path(current_user), class: "btn btn-primary" %>
-        </div>
-
+            <div class = "action">
+                <h2>配送先</h2>
+                <%= link_to "一覧を見る", deliveries_path, class: "btn btn-primary" %>
+            </div>
+            <div class = "action">
+                <h2>注文を見る</h2>
+                <%= link_to "一覧を見る", orders_path(current_user), class: "btn btn-primary" %>
+            </div>
+         
     </div>
 </div>

@@ -18,3 +18,18 @@
     @import "bootstrap";
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+	background-color: #fafad2;
+}
+
+a {
+    color: #555500;
+    text-decoration:underline;
+}
+
