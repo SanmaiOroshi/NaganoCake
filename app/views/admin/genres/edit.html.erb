@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <h3>ジャンル編集画面</h3>
-    <%= form_with url: admin_genre_path(@genre),model:@genre do |f| %>
-      <%= f.text_field :genre%>
-      <%= f.radio_button :display_status, true %>
-      <%= f.label :display_status, t('enums.genre.display_status.true') %>
-      <%= f.radio_button :display_status, false %>
-      <%= f.label :display_status, t('enums.genre.display_status.false') %>
-      <%= f.submit "変更を保存する",class: "btn btn-primary" %>
-    <% end %>  
-
-  </div>  
+      <%= form_with url: admin_genre_path(@genre),model:@genre,local: true do |f| %>
+        <%= render 'layouts/error_messages', model: @genre %>
+        <%= f.text_field :genre%>
+        <%= f.radio_button :display_status, true %>
+        <%= f.label :display_status, t('enums.genre.display_status.true') %>
+        <%= f.radio_button :display_status, false %>
+        <%= f.label :display_status, t('enums.genre.display_status.false') %>
+        <%= f.submit "変更を保存する",class: "btn btn-primary" %>
+      <% end %>  
+  </div>
 </div>
