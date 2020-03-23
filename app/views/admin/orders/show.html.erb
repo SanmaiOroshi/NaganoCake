@@ -21,9 +21,9 @@
             <td><%= t("enums.order.payment_method.#{@order.payment_method}") %></td>
           </tr>
           <tr>
-            <td>注文ステータス</td>
+            <td>注文ステータス</td>ß
             <%= form_for @order,url: admin_order_path(@order) do |f| %>
-            <td><%= f.select :status, Order.statuses.map{|k| [I18n.t("enums.order.status.#{k[0]}"),k[1]]} %></td>
+            <td><%= f.select :status, Order.statuses_i18n.invert %></td>
             <td><%= f.submit "更新", class:"btn btn-primary" %></td>
             <% end %>
           </tr>

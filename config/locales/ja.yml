@@ -22,13 +22,14 @@ ja:
         making: "製作中"
         waiting_shipping: "発送準備中"
         already_shipping: "発送済み"
-        
+
     ordered_product:
       working_status:
         cannot: "着手不可"
         waiting: "製作待ち"
         making: "制作中"
         done: "制作完了"
+
   activerecord:
     models:
       user: "ユーザー"
@@ -50,7 +51,7 @@ ja:
         phone_number: "電話番号"
         email: "メールアドレス"
         status: "ユーザ状態ステータス"
-        password: "パスワード"      
+        password: "パスワード"
       admin:
         email: "メールアドレス"
         password: "パスワード"
@@ -89,7 +90,3 @@ ja:
         working_status: "作業ステータス"
         units: "個数"
         price: "金額"
-
-
-
-
