@@ -1,3 +1,6 @@
+<div class="container">
+<h2>ショッピングカート</h2>
+<%= link_to "カートを空にする",destroy_all_carts_path, method: :delete, class: "btn btn-danger" %>
 <% @carts.each do |cart| %>
 <table class = "table">
     <thead>
@@ -33,7 +36,7 @@
 <% end %>
 </br>
 <span>
-<%= link_to "買い物を続ける",products_path, class: "btn btn-primary" %>)
+<%= link_to "買い物を続ける",products_path, class: "btn btn-primary" %>
 </span>
 
 <table class = "table">
@@ -46,3 +49,4 @@
 <span>
     <%= link_to "情報入力に進む", orders_path, class: "btn btn-success"%>
 </span>
+</div>
