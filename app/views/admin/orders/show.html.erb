@@ -21,7 +21,7 @@
             <td><%= t("enums.order.payment_method.#{@order.payment_method}") %></td>
           </tr>
           <tr>
-            <td>注文ステータス</td>ß
+            <td>注文ステータス</td>
             <%= form_for @order,url: admin_order_path(@order) do |f| %>
             <td><%= f.select :status, Order.statuses_i18n.invert %></td>
             <td><%= f.submit "更新", class:"btn btn-primary" %></td>
@@ -50,7 +50,8 @@
             <td><%= order.price %></td>
             <td><%= order.units%></td>
             <td> <%= order.price * order.units %> </td>
-            <%= form_for order,url: admin_order_path(order) do |form| %>
+
+            <%= form_for [@order,order],url: admin_order_ordered_product_path(@order,order) do |form| %>
             <td><%= form.select :working_status, OrderedProduct.working_statuses.map{|k| [I18n.t("enums.ordered_product.working_status.#{k[0]}"),k[0]]} %></td>
             <!-- 後日{|k| [I18n.t("enums.ordered_product.working_status.#{k[0]}"),k[0]]} を解決する-->
             <td><%= form.submit "更新", class:"btn btn-primary" %></td>
