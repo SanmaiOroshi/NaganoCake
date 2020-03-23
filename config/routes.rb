@@ -25,8 +25,9 @@ Rails.application.routes.draw do
   resources :deliveries, only: [:index,:create,:destroy,:edit,:update]
   namespace :admin do
     resources :carts
-    resources :orders
-    resources :ordered_products
+    resources :orders do
+      resources :ordered_products, only: [:update]
+    end
   end
 
   # Adminのrouting

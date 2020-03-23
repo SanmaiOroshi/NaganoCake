@@ -19,9 +19,7 @@
                   <%= order.name %></br>
                 </td>
                 <td>
-                  <% order.ordered_products.each do |product| %>
-                  <p><%= product.units%></p>
-                  <% end %>
+                  <p><%= order.sum_units%></p>
                 </td>
                 <td><%= t("enums.order.status.#{order.status}") %></td>
               </tr>

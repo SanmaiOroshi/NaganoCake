@@ -15,4 +15,12 @@ class Order < ApplicationRecord
     already_shipping: 5
   }
 
+  def sum_units
+    sum = 0
+    self.ordered_products.each do |product|
+      sum += product.units
+    end
+    return sum
+  end
+
 end
