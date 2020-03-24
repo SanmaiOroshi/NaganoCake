@@ -15,7 +15,7 @@
     <tbody>
         <tr>
             <td><%= cart.product.name%></td>
-            <td><%= cart.product.unit_price%></td>
+            <td><%= tax_price(cart.product.unit_price)%></td>
             <td>
                 <%= form_for cart do |c|%>
                 <%= c.number_field :units,min:1,max:10000,step:1 %>
@@ -23,7 +23,7 @@
                 <% end%>
             </td>
             <td>
-                <%= cart.product.unit_price * cart.units %>
+                <%= tax_price(cart.product.unit_price * cart.units) %>
             </td>
             <td>
                 <%= link_to "削除する",cart_path(cart.id), method: :delete, class: "btn btn-danger" %>
