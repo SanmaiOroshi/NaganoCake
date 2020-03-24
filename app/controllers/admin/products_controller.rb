@@ -21,7 +21,6 @@ class Admin::ProductsController < ApplicationController
       redirect_to admin_product_path(product)
     else
       @product = product
-      binding.pry
       render 'new'
     end
   end
