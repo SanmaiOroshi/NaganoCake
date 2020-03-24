@@ -12,7 +12,7 @@
             <%= attachment_image_tag(@product, :image, :fill, 200, 200,  fallback: "準備中.jpg")%><br>
             <%= @product.name %>
             <%= @product.description%>
-            <h2><%= tax_price(@product.unit_price)%></h2> <h5>(税込)</h5>
+            <h2><%= disp_tax_price(@product.unit_price)%></h2> <h5>(税込)</h5>
             <%= form_for @cart do |f| %>
             <%= f.select :units, [["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]] %>
             <%= f.hidden_field :product_id, :value => @product.id%>
