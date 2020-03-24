@@ -12,7 +12,7 @@
                         <%= link_to(product) do %>
                         <%= attachment_image_tag(product, :image, :fill, 100,100, fallback: "準備中.jpg")%>
                         <%= link_to product.name, product, class: "product_#{product.id}"%>
-                        <%= product.unit_price %>
+                        <%= tax_price(product.unit_price) %>
                         <% end %>
                         </div>
                     <% end %>
