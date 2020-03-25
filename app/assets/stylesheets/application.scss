@@ -18,6 +18,38 @@
 @import "bootstrap";
 
 
+.delivery_form_control {
+    @extend .form-control;
+    display: inline;
+    width: auto;
+    margin-left: 30px;
+}
+
+.delivery_address_control {
+    @extend .form-control;
+    display: inline;
+    width: 250px;
+    margin-left: 30px;
+}
+
+.delivery_label {
+    width: 200px;
+    display: inline-block;
+
+}
+
+.delivery_registration_button {
+    width: 80px;
+    display: inline-block;
+}
+
+.delivery_edit_button {
+    @extend .form-control;
+    display: inline-block;
+    width: 100px;
+    float: right;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -38,5 +70,5 @@ a {
 }
 
 .user-edit {
-  margin-top: 15px;
+    margin-top: 15px;
 }
