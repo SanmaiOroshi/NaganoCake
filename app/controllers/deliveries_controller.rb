@@ -11,7 +11,7 @@ class DeliveriesController < ApplicationController
 		   redirect_to deliveries_path
 		else
 		   @delivery_new = Delivery.new
-		   @deliveries = currenr_user.deliveries
+		   @deliveries = current_user.deliveries
 		   render :index
 		end
 	end
