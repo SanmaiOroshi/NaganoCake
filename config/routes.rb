@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :products, only: [:index,:show]
+  resources :genres, only: [:index] do
+    resources :products, only: [:index]
+  end
   resources :carts, only: [:index,:edit,:update,:destroy,:create] do
     collection do
       delete 'destroy_all'

@@ -1,23 +1,68 @@
-<div class = "container">
-    <div class = "row">
-            <h2>商品一覧</h2>
-            <h5>(全<%= @products.count %>件)</h5>
-            <div class = "row">
-                <div class = "col-xs-2">
+
+<div class="container my-5">
+ <div class="row">
+    <div class="col-xs-2">
+      <%= render 'genrebox', genres: @genres %>
+     </div>
+
+    <div class="col-xs-9">
+
+<!--商品ジャンルの表示-->
+      <div class="row">
+        <h2>
+          <% if params[:genre_id] %>
+            <%= @genre.genre %>
+          <% else %>
+            すべての商品
+          <% end %>
+        </h2>
+      </div>
+
+<!-- 販売可の商品件数表示 -->
+      <div class="row">
+        <strong>
+          全
+          <% if params[:genre_id] %>
+             <%= @products.order(created_at: :desc).where(status: true).count %>
+          <% else %>
+                <%= Product.where(status: true).count %>
+          <% end %>
+          件
+        </strong>
+      </div>
+
+<!-- 全てまたは選択ジャンル別の商品表示-->
+        <div class="row">
+            <% @products.each do |product| %>
+                <div class="col-xs-3 mt-3"> <!--1個ずつまとめてカラムを指定する-->
+                    <div class="mx-auto">
+                    <%= link_to product_path(product) do %>
+                    <%= attachment_image_tag product, :image, :limit, 200,200, format: 'jpeg', fallback: 'no-image.png',size: "200x200" %>
+                    </div>
+                    <% end %><br>
+                    <span class="text-muted"><%= link_to product.genre.genre, genre_products_path(product.genre_id) %></span><br>
+                    <strong><%= product.name %></strong><br>
+                    <span><%= disp_tax_price(product.unit_price)%>円(税込)</span><br>
                 </div>
-                <div class = "col-xs-10">
-                <div class = "row">
-                    <% @products.each do |product|%>
-                        <div class = "col-xs-3 item">
-                        <%= link_to(product) do %>
-                        <%= attachment_image_tag(product, :image, :fill, 100,100, fallback: "準備中.jpg")%>
-                        <%= link_to product.name, product, class: "product_#{product.id}"%>
-                        <%= tax_price(product.unit_price) %>
-                        <% end %>
-                        </div>
-                    <% end %>
-                </div>
-                </div>
-            </div>
+            <% end %>
+        </div>
     </div>
-</div>
+
+   </div>
+  </div>
+
+
+
+
+
+    <!-- ページネーション -->
+ <div class="container">
+    <div class="row">
+     <div class="col-md-4 offset-md-4 py-2 mt-5">
+        <%= paginate @products %>
+     </div>
+    </div>
+ </div>
+    <!-- ページネーション -->
+
+ 
