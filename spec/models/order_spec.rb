@@ -23,24 +23,6 @@ RSpec.describe Order, type: :model do
       expect(order).not_to be_valid
     end
 
-    # 送料がないときテストが失敗することを確認
-    it "is invalid without shipping_fee" do
-      order = Order.new(user_id: @user.id,payment_method: 1,shipping_fee: nil,total_payment: 2400,status: 1,name:@user.last_name + @user.first_name,address: @user.address,post_code: @user.post_code)
-      expect(order).not_to be_valid
-    end
-
-    # 合計金額がないときテストが失敗することを確認
-    it "is invalid without total_payment" do
-      order = Order.new(user_id: @user.id,payment_method: 1,shipping_fee: 800,total_payment: nil,status: 1,name:@user.last_name + @user.first_name,address: @user.address,post_code: @user.post_code)
-      expect(order).not_to be_valid
-    end
-
-    # statusがないとき、テストが失敗することを確認
-    it "is invalid without status" do
-      order = Order.new(user_id: @user.id,payment_method: 1,shipping_fee: 800,total_payment: 2400,status: 1,name:@user.last_name + @user.first_name,address: @user.address,post_code: @user.post_code)
-      expect(order).not_to be_valid
-    end
-
     # 宛名がないとき、テストが失敗することを確認
     it "is invalid without name" do
       order = Order.new(user_id: @user.id,payment_method: 1,shipping_fee: 800,total_payment: 2400,status: 1,name:@user.last_name + @user.first_name,address: @user.address,post_code: @user.post_code)
