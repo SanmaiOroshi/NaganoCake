@@ -2,6 +2,11 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :ordered_products, dependent: :destroy
 
+   validates :name, presence: true
+   validates :address, presence: true
+   validates :post_code, presence: true
+   validates :payment_method, presence: :true
+   
   enum payment_method: {
     card: 1,
     transfar: 2

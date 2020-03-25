@@ -23,6 +23,8 @@
       <%= render 'layouts/before_login' %>
     <% end %>
 
+    <%= flash[:notice] %>
+    
     <%= yield %>
 
 

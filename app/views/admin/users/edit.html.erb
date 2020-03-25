@@ -3,55 +3,106 @@
     <h2>会員編集画面</h2>
   </div>
 
-  <div class="col-xs-4">
+  <div class="col-xs-offset-2 col-xs-8">
     <% if flash[:user_updated_error] %>
       <span class="text-danger"><%= flash[:user_updated_error] %></span>
     <% end %>
-  </div>
 
 
       <%= form_for (@user), url: admin_user_path(@user) do |f| %>
 
         <div class="form-group row">
-          <%= f.label :会員id, class: "col-sm-4" %>
-          <%= f.label @user.id %>
+          <div class="col-xs-2">
+            <label>会員id</label>
+          </div>
+          <div class="col-xs-2 text-left">
+            <%= @user.id %>
+          </div>
+        </div>
+
+
+       　<div class="form-group row">
+          <div class="col-xs-2">
+            <label>氏名</label>
+          </div>
+          <div class="col-xs-1">
+            <%= f.label :last_name, "(姓)" %>
+          </div>
+          <div class="col-xs-4">
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+          <div class="col-xs-1">
+            <%= f.label :first_name, "(名)" %>
+          </div>
+          <div class="col-xs-4">
+            <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+         </div>
+
+
+        <div class="form-group row">
+          <div class="col-xs-2">
+            <label>フリガナ</label>
+          </div>
+          <div class="col-xs-1">
+            <%= f.label :last_name_kana, "(ｾｲ)" %>
+          </div>
+          <div class="col-xs-4">
+            <%= f.text_field :last_name_kana, class: "form-control" %>
+          </div>
+          <div class="col-xs-1">
+            <%= f.label :first_name_kana, "(ﾒｲ)" %>
+          </div>
+          <div class="col-xs-4">
+            <%= f.text_field :first_name_kana, class: "form-control" %>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <label>郵便番号</label>
+          </div>
+          <div class="col-xs-9">
+            <%= f.text_field :post_code, class: "form-control" %>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <label>住所</label>
+          </div>
+          <div class="col-xs-9">
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <label>電話番号</label>
+          </div>
+          <div class="col-xs-9">
+            <%= f.text_field :phone_number, class: "form-control offset-1 col-11" %>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-xs-3">
+            <label>メールアドレス</label>
+          </div>
+          <div class="col-xs-9">
+            <%= f.email_field :email, autofocus: true, class: "form-control offset-1 col-11" %>
+          </div>
         </div>
 
         <div class="form-group row">
-          <%= f.label :氏名, class: "col-sm-4" %>
-          <%= f.text_field :last_name, class: "form-control col-sm-4" %>
-          <%= f.text_field :first_name, class: "form-control col-sm-4" %>
-        </div>
-
-        <div class="form-group row">
-          <%= f.label :フリガナ, class: "col-sm-4" %>
-          <%= f.text_field :last_name_kana, class: "form-control col-sm-4" %>
-          <%= f.text_field :first_name_kana, class: "form-control col-sm-4" %>
-        </div>
-
-        <div class="form-group row">
-          <%= f.label :郵便番号, class: "col-sm-4" %>
-          <%= f.text_field :post_code, class: "form-control col-sm-8" %>
-        </div>
-
-        <div class="form-group row">
-          <%= f.label :住所, class: "col-sm-4" %>
-          <%= f.text_field :address, class: "form-control col-sm-8" %>
-        </div>
-
-        <div class="form-group row">
-          <%= f.label :電話番号, class: "col-sm-4" %>
-          <%= f.text_field :phone_number, class: "form-control col-sm-8" %>
-        </div>
-
-        <div class="form-group row">
-          <%= f.label :メールアドレス, class: "col-sm-4" %>
-          <%= f.email_field :email, class: "form-control col-sm-8" %>
-        </div>
-
-        <div class="form-group row">
-          <%= f.label :会員ステータス, class: "ml-3" %>
-          <div class="ml-4">
+          <div class="col-xs-3">
+            <label>会員ステータス</label>
+          </div>
+          <div class="col-xs-9">
             <%= f.radio_button :status, :true %>
             <%= f.label :status, "有効会員" %>
             <%= f.radio_button :status, :false %>
@@ -59,11 +110,14 @@
           </div>
         </div>
 
-        <div class="change">
-          <%= f.submit "変更を保存する", class: "btn btn-primary mt-3 mx-auto" %>
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-5">
+            <%= f.submit "変更を保存する", class: "btn btn-primary"  %>
+          </div>
         </div>
 
       <% end %>
-
+  </div>
 
 </div>
+

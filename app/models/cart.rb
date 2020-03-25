@@ -2,6 +2,7 @@ class Cart < ApplicationRecord
   belongs_to :user
   belongs_to :product
 
+  validates :units, presence: true
     def current_cart
       current_user.carts
     end
