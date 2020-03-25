@@ -24,11 +24,5 @@ RSpec.describe OrderedProduct, type: :model do
       oproduct = OrderedProduct.new(order_id: @order.id,product_id: @product.id,working_status: nil,units: 10,price: @product.unit_price)
       expect(oproduct).not_to be_valid
     end
-
-    # unitsが入っていない場合、エラーになることを確認
-    it "is invalid with all columns" do
-      oproduct = OrderedProduct.new(order_id: @order.id,product_id: @product.id,working_status: 1,units: nil,price: @product.unit_price)
-      expect(oproduct).not_to be_valid
-    end
   end
 end
