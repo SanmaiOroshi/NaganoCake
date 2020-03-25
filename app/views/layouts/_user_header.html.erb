@@ -1,5 +1,6 @@
 
-<div class="container", style="background-color: #cccc33">
+<div class="container-fluid", style="background-color: #FFDBC9">
+  <div class="container">
   <div class="row">
   <div class="navbar header">
   	<%= link_to image_tag('長野ケーキ.png'), root_path, class: "navbar-brand" %>
@@ -7,7 +8,7 @@
 
       <ul class="nav navbar-nav .justify-content-center">
 
-      <div class="u-name text-white strong">
+      <div class="text-center">
       	ようこそ、<%= current_user.last_name %><%= current_user.first_name %>さん！
       </div>
 
@@ -26,4 +27,5 @@
       </ul>
     </div>
   </div>
+</div>
 </div>

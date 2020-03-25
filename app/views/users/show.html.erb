@@ -1,13 +1,13 @@
 
 
 <div class="container">
-    <div class="row">
-        
-            <h2>登録情報</h2>
-            <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
-            <%= link_to "パスワードを変更", edit_user_registration_path, class: "btn btn-primary" %>
- 
-            <table class="table table-borderless table-hover">
+  <div class="row">
+    <h2>登録情報</h2>
+    <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
+    <%= link_to "パスワードを変更", edit_user_registration_path, class: "btn btn-primary" %>
+  </div>
+          <div class="col-xs-4">
+            <table class="table">
               <tr>
                     <td>氏名</td>
                     <td>
@@ -44,15 +44,16 @@
                 <td><%= @user.email %></td>
               </tr>
             </table>
+          </div>
 
-            <div class = "action">
-                <h2>配送先</h2>
-                <%= link_to "一覧を見る", deliveries_path, class: "btn btn-primary" %>
-            </div>
-            <div class = "action">
-                <h2>注文を見る</h2>
-                <%= link_to "一覧を見る", orders_path(current_user), class: "btn btn-primary" %>
-            </div>
+  <div class = "action">
+    <h2>配送先</h2>
+    <%= link_to "一覧を見る", deliveries_path, class: "btn btn-primary" %>
+  </div>
+  <div class = "action">
+    <h2>注文を見る</h2>
+    <%= link_to "一覧を見る", orders_path(current_user), class: "btn btn-primary" %>
+  </div>
          
     </div>
 </div>

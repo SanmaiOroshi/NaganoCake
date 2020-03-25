@@ -48,13 +48,15 @@ class OrdersController < ApplicationController
       end
       redirect_to complete_orders_path
     else
-      @post_code = order_params[:post_code]
-      @address = order_params[:address]
-      @name = order_params[:name]
-      @payment_method = params[:order][:payment_method]
-      @carts = current_user.carts
-      @order = Order.new(orders_params)
-      render 'new'
+      # @post_code = params[:order][:post_code]
+      # @address = params[:order][:address]
+      # @name = params[:order][:name]
+      # @payment_method = params[:order][:payment_method]
+      # @carts = current_user.carts
+      # @order = Order.new(orders_params)
+      # render 'new'
+      redirect_to input_orders_path
+      flash[:notice] = "登録に失敗しました。"
     end
   end
 
