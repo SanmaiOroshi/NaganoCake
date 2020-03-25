@@ -46,28 +46,30 @@
     </div>
 
     <div class="row">
-      <div class="">
-        <h3>支払方法</h3>
-        <%= t("enums.order.payment_method.#{@payment_method}") %>
-        <h3>お届け先</h3>
-        <%= @post_code %>
-        <%= @address %>
-        <%= @name %>
+      <div class="col-xs-2">
+        <h4>支払方法</h4>
+      </div>
+      <div class="col-xs-4">
+        <h4><%= t("enums.order.payment_method.#{@payment_method}") %></h4>    
       </div>
     </div>
 
-    <% if @order.errors.any? %>
-      <div id="error_explanation" class="alert alert-danger">
-        <ul>
-          <% @order.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+    <div class="row">
+      <div class="col-xs-2">
+        <h4>お届け先</h4>                      
       </div>
-    <% end %>
+      <div class="col-xs-4">
+        <h4><%= @post_code %> <%= @address %></h4>
+        <h4><%= @name %></h4>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- createするためにパラメータを送る用 -->
+
       <%= form_with model: @order, local: true do |f|%>
+        <%= render 'layouts/error_messages', model: @order %>
         <%= f.hidden_field :shipping_fee, value: 800 %>
         <%= f.hidden_field :total_payment, value: current_user.user_total_price %>
         <%= f.hidden_field :payment_method %>
@@ -75,7 +77,9 @@
         <%= f.hidden_field :address, value: @address %>
         <%= f.hidden_field :status, value: :waiting_payment %>
         <%= f.hidden_field :name, value: @name %>
-        <%= f.submit "購入を確定する", class:"btn btn-success" %>
+        <div class="row text-center">
+          <%= f.submit "購入を確定する", class:"btn btn-success" %>
+        </div>
       <% end %>
   </div>    
   </div>  
