@@ -74,6 +74,17 @@ a {
     margin-top: 15px;
 }
 
+
 th {
     background: #bdc3c7;
+}
+
+// フッター最下部固定
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
 }
