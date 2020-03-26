@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       		@products = @genre.products.order(created_at: :desc).where(status: true).page(params[:page]).per(8)
 	    	# 含まれていなければ販売ステータスtrueを呼ぶ
 		else
-      		@products = Product.where(status: true).page(params[:page]).per(12)
+      		@products = Product.where(status: true).page(params[:page]).per(8)
 	    end
     end
 
