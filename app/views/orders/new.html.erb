@@ -15,7 +15,7 @@
         <tbody>
         <% @carts.each do |cart| %> 
           <tr>
-            <td><%= cart.product.name %></td>
+            <td> <%= attachment_image_tag(@product, :image, :limit, 50, 50,  fallback: "no-image.png",size: "50x50")%>   <%= cart.product.name %></td>
             <td><%= disp_price(tax_price(cart.product.unit_price)) %></td>
             <td><%= cart.units %></td>
             <td><%= disp_price(tax_price(cart.product.unit_price) *  cart.units) %></td>
