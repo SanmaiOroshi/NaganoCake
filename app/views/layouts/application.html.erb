@@ -10,6 +10,8 @@
   </head>
 
   <body>
+
+  <header class="header">
     <!-- ユーザでログインしている場合 -->
     <% if user_signed_in? %>
       <%= render 'layouts/user_header' %>
@@ -23,9 +25,24 @@
       <%= render 'layouts/before_login' %>
     <% end %>
 
+   </header>
+
+
+    <main>
     <%= flash[:notice] %>
     
     <%= yield %>
+    </main>
+
+
+
+    <footer class="footer text-brown", style="background-color: #FFDBC9;">
+
+
+      <div class="container text-center mt-3">
+        <p>3枚おろし</p>
+      </div>
+    </footer>
 
 
   </body>
