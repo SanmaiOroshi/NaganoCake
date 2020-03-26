@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!
+
     def quit
-        
+
     end
 
     def user_quit
