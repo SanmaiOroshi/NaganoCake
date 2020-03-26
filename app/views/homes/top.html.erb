@@ -1,39 +1,38 @@
-<div class="container">
+<div class="container top-group">
   <div class="row">
-
-		<div class="col-md-12">
-			<div class = "col-xs-2">
-				<%= render 'products/genrebox', genres: @genres %>
-			</div>
-			<div class = "col-xs-10">
-	  <%= image_tag 'topimage01.jpg', :width => '100%', :height => '60%' %>
-			</div>
-		<div class = "col-xs-3"></div>
-			<div class = "col-xs-9">
-
-		  <div class="row">
-		  	<h2>New Product</h2>
-		  </div>
-
-          <div class="row mx-auto mt-3">
-		  	<% @products.last(4).each do |product| %>
-		  	<div class="col-xs-3">		  		
-			  	<div class="mx-auto">
+		<div class = "col-xs-2">
+			<%= render 'products/genrebox', genres: @genres %>
+		</div>
+		<div class = "col-xs-10">
+			<div id="box">
+		  	<div id="theTarget">
+					<%= image_tag 'topimage01.jpg' %>
+  				<%= image_tag 'topimage02.jpg' %>
+					<%= image_tag 'topimage03.jpg' %>
+					<%= image_tag 'topimage04.jpg' %>
+					<%= image_tag 'topimage05.jpg' %>
+		  	</div>
+  		</div>
+		</div>
+	</div>
+	<div class = "col-xs-offset-2">
+	  <div class="row">
+	  	<h2>新商品</h2>
+	  </div>
+    <div class="row　mt-3">
+	  	<% @products.last(4).each do |product| %>
+		  	<div class="col-xs-3">
 			  	<%= link_to product_path(product) do %>
-			  	<%= attachment_image_tag @product, :image, :limit, 200, 200, fallback: "no-image.png",size: "200x200" %>
-		  	</div>
-
+				  	<%= attachment_image_tag product, :image, :limit, 200, 200, fallback: "no-image.png",size: "200x200" %>
 		  	  <% end %>
-		  	  <div class="row mt-2">
-		  	  	<span><%= product.name %></span>
+	  	  	<div class="mt-2">
+	  	  		<span><%= product.name %></span>
+	  	  	</div>
+	  	  	<div class="mt-1">
+	  	  		<span><%= disp_tax_price(product.unit_price) %>円</span>
 		  	  </div>
-		  	  <div class="row mt-1">
-		  	  	<span><%= disp_tax_price(product.unit_price) %>
-		  	  	円</span>
-		  	  </div>
-		  	</div>
-		  	<% end %>
-		  </div>
+	  		</div>
+  		<% end %>
     </div>
 
     <div class="text-right">
