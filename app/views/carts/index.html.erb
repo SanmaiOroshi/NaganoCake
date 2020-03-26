@@ -4,7 +4,9 @@
     <h2>ショッピングカート</h2>
     <%= link_to "カートを空にする",destroy_all_carts_path, method: :delete, class: "btn btn-danger" %>
 
-    <table class = "table">
+    </br>
+
+    <table class = "table table-bordered">
         <thead>
             <tr>
                 <th>商品名</th>
@@ -46,9 +48,9 @@
 
 </div>
 <div class = "col-xs-4">
-    <table class = "table">
+    <table class = "table table-bordered">
         <tr>
-            <td>合計金額</td>
+            <td class>合計金額</td>
             <td><%= disp_price(current_user.user_total_price)%></td>
         </tr>
     </table>
