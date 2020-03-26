@@ -29,8 +29,9 @@
 
 
     <main>
-    <%= flash[:notice] %>
-    
+      <div class="container">
+   <%= render 'layouts/flash_messages' %>
+      </div>
     <%= yield %>
     </main>
 
