@@ -46,17 +46,11 @@ class OrdersController < ApplicationController
           price: cart.product.tax_price,
           working_status: 1
         )
-        Cart.destroy_all
       end
+      current_user.deliveries.create(post_code: @order.post_code,address: @order.address,name: @order.name)
+      current_user.carts.destroy_all
       redirect_to complete_orders_path
     else
-      # @post_code = params[:order][:post_code]
-      # @address = params[:order][:address]
-      # @name = params[:order][:name]
-      # @payment_method = params[:order][:payment_method]
-      # @carts = current_user.carts
-      # @order = Order.new(orders_params)
-      # render 'new'
       redirect_to input_orders_path
       flash[:notice] = "登録に失敗しました。"
     end
