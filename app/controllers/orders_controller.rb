@@ -47,7 +47,10 @@ class OrdersController < ApplicationController
           working_status: 1
         )
       end
-      current_user.deliveries.create(post_code: @order.post_code,address: @order.address,name: @order.name)
+      if params[:delivery_addr] == "new_addr" then
+        current_user.deliveries.create(post_code: @order.post_code,address: @order.address,name: @order.name)
+        binding.pry
+      end
       current_user.carts.destroy_all
       redirect_to complete_orders_path
     else

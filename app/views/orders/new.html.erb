@@ -70,6 +70,7 @@
 
       <%= form_with model: @order, local: true do |f|%>
         <%= render 'layouts/error_messages', model: @order %>
+        <%= hidden_field_tag :delivery_addr,@delivery_addr %>
         <%= f.hidden_field :shipping_fee, value: 800 %>
         <%= f.hidden_field :total_payment, value: current_user.user_total_price %>
         <%= f.hidden_field :payment_method %>
