@@ -17,6 +17,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.imgWrap {
+  overflow: hidden;
+}
+
+.imgWrap img {
+  transition-duration: 0.3s;
+}
+
+.imgWrap img:hover {
+  transform: scale(1.1);
+  transition-duration: 0.3s;
+}
+
+.top-padding {
+  @extend .container-fluid ;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 
 .delivery_form_control {
     @extend .form-control;
