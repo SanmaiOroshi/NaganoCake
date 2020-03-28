@@ -2,7 +2,7 @@ class CartsController < ApplicationController
       before_action :authenticate_user!
 
     def index
-        @carts = Cart.all
+        @carts = current_user.carts
     end
 
     def create
@@ -13,7 +13,7 @@ class CartsController < ApplicationController
             if @cart.save
                 redirect_to carts_path, notice: "カートに商品が追加されました。"
             else
-                @carts = Cart.all
+                @carts = current_user.carts
                 render 'index'
             end
         else
