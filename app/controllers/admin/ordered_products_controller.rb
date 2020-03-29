@@ -11,7 +11,10 @@ class Admin::OrderedProductsController < ApplicationController
         
         if wstatus.length == 1 && wstatus[0] == "done"            
             @order.update(status: "waiting_shipping")
+        elsif wstatus.include?("making")
+            @order.update(status: "making")
         end
+
         redirect_to admin_order_path(@order)
     end
 
