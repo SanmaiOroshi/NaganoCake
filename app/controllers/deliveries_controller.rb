@@ -11,6 +11,7 @@ class DeliveriesController < ApplicationController
 		@delivery.user_id = current_user.id
 		if @delivery.save
 		   redirect_to deliveries_path
+		   flash[:success] = "登録しました。"
 		else
 		   @delivery_new = Delivery.new
 		   @deliveries = current_user.deliveries

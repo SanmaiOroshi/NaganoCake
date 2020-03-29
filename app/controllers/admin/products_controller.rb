@@ -20,7 +20,7 @@ class Admin::ProductsController < ApplicationController
   def create
     product = Product.new(product_params)
     if product.save
-      flash[:notice] = "商品を登録しました"
+      flash[:success] = "商品を登録しました"
       redirect_to admin_products_path
     else
       @product = product
