@@ -9,25 +9,19 @@
 
 <!--商品ジャンルの表示-->
       <div class="row">
-        <h2>
+        <h3 class="under-border">
           <% if params[:genre_id] %>
             <%= @genre.genre %>
           <% else %>
             すべての商品
           <% end %>
-        </h2>
+        </h3>
       </div>
 
 <!-- 販売可の商品件数表示 -->
       <div class="row">
         <strong>
-          全
-          <% if params[:genre_id] %>
-             <%= @products.order(created_at: :desc).where(status: true).count %>
-          <% else %>
-                <%= Product.where(status: true).count %>
-          <% end %>
-          件
+          全<%= @products_all.count %>件
         </strong>
       </div>
 

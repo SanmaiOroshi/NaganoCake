@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
-    <h2>登録情報</h2>
+    <h3 class="under-border">登録情報</h3>
     <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
     <%= link_to "パスワードを変更", edit_user_registration_path, class: "btn btn-primary" %>
 
@@ -48,11 +48,11 @@
 
 
           <div>
-            <h2>配送先</h2>
+            <h3 class="under-border">配送先</h3>
             <%= link_to "一覧を見る", deliveries_path, class: "btn btn-primary" %>
           </div>
           <div>
-            <h2>注文を見る</h2>
+            <h3 class="under-border">注文を見る</h3>
             <%= link_to "一覧を見る", orders_path(current_user), class: "btn btn-primary" %>
           </div>
       </div>
