@@ -36,26 +36,31 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.new(orders_params)
     # binding.pry
-    # 保存できるか確認
-    if @order.save
-      current_user.carts.each do |cart|
-        ordered_product = @order.ordered_products.create(
-          order_id: @order.id,
-          product_id: cart.product_id,
-          units: cart.units,
-          price: cart.product.tax_price,
-          working_status: 1
-        )
+    if current_user.carts.empty?
+      redirect_to root_path
+      flash[:danger] = "購入する商品がありません"
+    else  
+      # 保存できるか確認
+      if @order.save
+        current_user.carts.each do |cart|
+          ordered_product = @order.ordered_products.create(
+            order_id: @order.id,
+            product_id: cart.product_id,
+            units: cart.units,
+            price: cart.product.tax_price,
+            working_status: 1
+          )
+        end
+        if params[:delivery_addr] == "new_addr" then
+          current_user.deliveries.create(post_code: @order.post_code,address: @order.address,name: @order.name)
+          binding.pry
+        end
+        current_user.carts.destroy_all
+        redirect_to complete_orders_path
+      else
+        redirect_to input_orders_path
+        flash[:danger] = "登録に失敗しました。"
       end
-      if params[:delivery_addr] == "new_addr" then
-        current_user.deliveries.create(post_code: @order.post_code,address: @order.address,name: @order.name)
-        binding.pry
-      end
-      current_user.carts.destroy_all
-      redirect_to complete_orders_path
-    else
-      redirect_to input_orders_path
-      flash[:notice] = "登録に失敗しました。"
     end
   end
 

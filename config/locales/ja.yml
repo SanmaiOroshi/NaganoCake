@@ -27,8 +27,8 @@ ja:
       working_status:
         cannot: "着手不可"
         waiting: "製作待ち"
-        making: "制作中"
-        done: "制作完了"
+        making: "製作中"
+        done: "製作完了"
 
   activerecord:
     models:

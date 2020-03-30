@@ -8,7 +8,7 @@ class Admin::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      flash[:notice] = "登録に成功しました"
+      flash[:success] = "ジャンルを登録しました。"
       redirect_to admin_genres_path
     else
       @genres = Genre.page(params[:page]).per(10)
